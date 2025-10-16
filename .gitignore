@@ -1,7 +1,16 @@
-.DS_Store           # macOS (archivos de configuración de carpetas)
-Thumbs.db           # Windows (archivos de miniaturas)
+# NOTA:l Los comentarios no pueden ir en la misma línea que el nombre de los archivos
+# esto recién lo estoy descubriendo. Al parecer, aún siendo comentarios, .gitignore
+# toma como inválida la linea is contiene mas de una palabra
 
-/target/            #  Maven's builddirectory (archivos compilados)
+# macOS (archivos de configuración de carpetas)
+.DS_Store           
+# Windows (archivos de miniaturas)
+Thumbs.db           
+
+#  Maven's builddirectory (archivos compilados)
+/target/            
+
+#Otros archivos Maven
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
