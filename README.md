@@ -2,6 +2,12 @@
 
 ---
 
+## Flujo de trabajo: Feature Branch with PRs
+
+- Si no estas seguro a que se refiere (Yo apenas la verdad), indaga sobre ello.
+
+---
+
 ## Dependencias y Versiones Usadas
 
 Compatibilidad del entorno de desarrollo
