@@ -5,6 +5,7 @@
 ## Flujo de trabajo: Feature Branch with PRs
 
 - Si no estas seguro a que se refiere (Yo apenas la verdad), indaga sobre ello.
+- Síntesis: Protege la rama principal (Versio estable) mediante PullRequest.
 
 ---
 
