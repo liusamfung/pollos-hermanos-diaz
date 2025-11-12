@@ -2,20 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.utp</groupId>
-    <artifactId>PollosHermanosDiaz</artifactId>
+    <artifactId>proyectoWebGlassfish</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>PollosHermanosDiaz</name>
+    <name>proyectoWebGlassfish-1.0-SNAPSHOT</name>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--Las siguientes lineas harán referencia a lan variables
-         de las dependencias declaradas en la linea inferior. Lo 
-        pondremos aqui porque es ma facil mantener y cambiar de versio
-        si llega a ser necesario.-->
         <jakartaee>10.0.0</jakartaee>
-        <mysql.version>8.0.33</mysql.version>
-        <jstl.version>3.0.1</jstl.version>
     </properties>
     
     <dependencies>
@@ -24,38 +18,6 @@
             <artifactId>jakarta.jakartaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
-        </dependency>
-          <dependency>
-              
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>${mysql.version}</version>
-            <scope>runtime</scope> 
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>${jstl.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>${jstl.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        
-        <dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.10.1</version> 
-        </dependency>
-        <dependency>
-            <groupId>org.projectodd.openwhisk</groupId>
-            <artifactId>functions</artifactId>
-            <version>0.3</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     
