@@ -4,8 +4,16 @@
 
 # macOS (archivos de configuración de carpetas)
 .DS_Store           
+.AppleDouble
+.LSOverride
 # Windows (archivos de miniaturas)
 Thumbs.db           
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.bak
+*.tmp
+*.temp
 
 #  Maven's builddirectory (archivos compilados)
 /target/            
@@ -18,3 +26,11 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 builddirectory/
+
+# Directorios de configuración específicos del proyecto
+nb-configuration.xml  
+netbeans
+/nbproject/
+/nb-configuration.xml
+/nbbuild/
+/build/
