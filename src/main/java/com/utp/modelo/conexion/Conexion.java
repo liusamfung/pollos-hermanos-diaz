@@ -56,6 +56,10 @@ public class Conexion {
         }
     }
     
+    
+    //Prueba tu conexion a base de datos con este main 
+    //Descoméntalo y dale a run (Solo al file) Te mostrará
+    // En el output si la base de datos esta conctada o no
 //public static void main(String[] args) {
 //        Connection testConn = null;
 //        try {

@@ -35,6 +35,8 @@ public class CatalogoServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
       List<ProductoDTO> productos = productoFacade.getCatalogoParaVenta();
+      
+        System.out.println(productos);
 
       request.setAttribute("productos", productos);
 

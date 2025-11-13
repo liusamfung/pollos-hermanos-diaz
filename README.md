@@ -10,7 +10,7 @@
 Compatibilidad del entorno de desarrollo
 
 ```yaml
-tomcat: 10
+Glassfish: 7.0.24
 maven: Apache NetBeans
 jakarta: 10.0.0
 mysql-connector: 8.0.33

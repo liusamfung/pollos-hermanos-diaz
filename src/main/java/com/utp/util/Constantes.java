@@ -4,7 +4,9 @@ public final class Constantes {
 
     // --- Configuración de la Base de Datos (usada en modelo/conexion/Conexion.java) ---
     public static final String MYSQL_DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/pollos_hermanos_diaz";
+//    public static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/pollos_hermanos_diaz"; //Link que funcionaba en TomCat
+// Glassfish o diferencia do TomCat tiene mecanismos de seguridad como keystroks y SSL. Vamos a desactivarlas porque no requimos eso
+    public static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/pollos_hermanos_diaz?useSSL=false&allowPublicKeyRetrieval=true";
     public static final String MYSQL_DB_USER = "root";
     public static final String MYSQL_DB_PASS = "adminroot";
 

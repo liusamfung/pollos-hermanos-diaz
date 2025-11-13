@@ -4,10 +4,6 @@
  */
 package com.utp.modelo.dao.impl;
 
-/**
- *
- * @author liusam
- */
 public class ClienteDAOImplMySQL {
     
 }
