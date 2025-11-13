@@ -15,6 +15,11 @@ $RECYCLE.BIN/
 *.tmp
 *.temp
 
+#Lsp jdtls (Eclipse)
+.classpath
+.project
+.settings/
+
 #  Maven's builddirectory (archivos compilados)
 /target/            
 
