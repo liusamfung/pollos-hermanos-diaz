@@ -41,12 +41,12 @@ public class CatalogoServlet extends HttpServlet {
       request.setAttribute("productos", productos);
 
       // Envía la vista (JSP)
-      request.getRequestDispatcher("/WEB-INF/vistas/catalogo.jsp").forward(request, response);
+      request.getRequestDispatcher("/vistas/catalogo.jsp").forward(request, response);
 
     } catch (Exception e) {
       // errores centralizado
       request.setAttribute("errorMensaje", "Ocurrió un error al cargar el catálogo: " + e.getMessage());
-      request.getRequestDispatcher("/WEB-INF/vistas/error.jsp").forward(request, response);
+      request.getRequestDispatcher("/vistas/error.jsp").forward(request, response);
     }
   }
 
