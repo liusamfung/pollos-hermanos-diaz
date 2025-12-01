@@ -22,10 +22,25 @@
                     <a href="https://www.whatsapp.com/download?lang=es" class="nav-link px-2 text-white">Contactanos</a>
                 </li>
             </ul>
-            <div class="text-end">
-                <a href="LoginServlet" class="btn btn-outline-light me-2">Login</a>
-                
-                <a href="RegistroServlet" class="btn btn-warning">Registrarse</a>
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/img/icono_usuario.png" alt="icono_usuario" width="32" height="32" class="rounded-circle">
+                    <span class="text-white me-2">Hola, ${sessionScope.cliente.nombre}</span>
+                </a>
+                <ul class="dropdown-menu text-small" style="">
+                    <li>
+                        <a class="dropdown-item" href="#">Mi Cuenta</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item"href="catalogo">Hacer Pedido</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="logout">Cerrar Sesiòn</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

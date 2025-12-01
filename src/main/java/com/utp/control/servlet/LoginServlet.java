@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/login")
+@WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
     // 1. Declaración de la dependencia usando la INTERFAZ (DIP)
@@ -32,11 +32,15 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Envía la vista (JSP)
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        HttpSession session = request.getSession(false);
+        
+        if (session != null && session.getAttribute("cliente") != null) {
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        } else {
+            request.getRequestDispatcher("WEB-INF/vistas/login.jsp").forward(request, response);
+        }
     }
 
-    // POST: Procesa los datos del formulario
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,7 +49,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        try {            
+        try {
             ClienteDTO clienteLogueado = clienteFacade.login(email, password);
 
             if (clienteLogueado != null) {
@@ -54,24 +58,21 @@ public class LoginServlet extends HttpServlet {
                 //Guardar el objeto completo en la sesión
                 session.setAttribute("cliente", clienteLogueado);
 
-                // C. Verificación de ROL
+                //Verificación de ROL
                 String rol = clienteLogueado.getRol();
 
                 if ("ADMIN".equalsIgnoreCase(rol)) {
                     // Si es admin se mandara a un apartado especial
-//                    response.sendRedirect(request.getContextPath() + "/adminnnnnn.html");
+                    response.sendRedirect(request.getContextPath() + "/admin.jsp");
                 } else {
                     // Si es cliente lo mandamos al inicio
-//                    Cuando usas response.sendRedirect(request.getContextPath() + "/catalogo"):
-//                         El navegador del cliente recibe una respuesta del servidor indicando que debe hacer una nueva solicitud GET al URL /catalogo.
-//                         Esta nueva solicitud es capturada por el CatalogoServlet (que está mapeado a /catalogo).
-                    response.sendRedirect(request.getContextPath() + "/catalogo");
+                    response.sendRedirect(request.getContextPath() + "/index.jsp");
                 }
 
             } else {
                 // Login fallido
                 request.setAttribute("errorMensaje", "El email o la contraseña son incorrectos.");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/vistas/login.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
