@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -33,8 +34,10 @@ public class CatalogoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            List<ProductoDTO> productos = productoFacade.getCatalogoParaVenta();
+        HttpSession session = request.getSession(false);
+        try {            
+            if (session != null && session.getAttribute("cliente") != null) {
+                List<ProductoDTO> productos = productoFacade.getCatalogoParaVenta();
 
             System.out.println(productos);
 
@@ -43,6 +46,10 @@ public class CatalogoServlet extends HttpServlet {
             // Envía la vista (JSP)
             request.getRequestDispatcher("/WEB-INF/vistas/catalogo.jsp").forward(request, response);
 
+            } else {
+                request.getRequestDispatcher("WEB-INF/vistas/login.jsp").forward(request, response);
+            }
+            
         } catch (Exception e) {
             // errores centralizado
             request.setAttribute("errorMensaje", "Ocurrió un error al cargar el catálogo: " + e.getMessage());
