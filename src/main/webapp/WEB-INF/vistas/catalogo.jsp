@@ -34,7 +34,7 @@
         <!-- NUEVOS BOTONES DE NAVEGACIÓN AÑADIDOS AQUÍ -->
         <div class="flex flex-wrap gap-4 mb-8">
             <!-- 1. Botón "Ir a Inicio" -->
-            <a href="${pageContext.request.contextPath}/index.html" 
+            <a href="${pageContext.request.contextPath}/index.jsp" 
                class="flex-1 text-center px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition shadow-md">
                 Ir a Inicio
             </a>
