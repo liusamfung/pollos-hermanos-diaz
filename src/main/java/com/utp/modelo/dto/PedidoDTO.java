@@ -4,25 +4,50 @@
 //import java.util.List;
 //
 //public class PedidoDTO {
-//    private Long idPedido;
-//    private LocalDateTime fechaHora;
-//    private String estado; 
-//    private List<DetallePedidoDTO> detalles; // Contenedor de los detalles
+//    private long id;
+//    private String codigo; // ABTNE, AA351, etc.
+//    private long clienteId;
+//    private LocalDateTime fechaRegistro;
+//    private String estado; // PENDIENTE, COMPLETADO, CANCELADO, etc.
+//    private double total;
+//    
+//    // Lista de ítems asociados a este pedido
+//    private List<DetallePedidoDTO> detalles; 
 //
-//    public PedidoDTO() {}
-//    public PedidoDTO(List<DetallePedidoDTO> detalles) {
-//        this.detalles = detalles;
-//        this.fechaHora = LocalDateTime.now();
-//        this.estado = "PENDIENTE";
+//    // Constructor para el monitor de cocina (simplificado)
+//    public PedidoDTO(String codigo, String estado) {
+//        this.codigo = codigo;
+//        this.estado = estado;
 //    }
-//
-//    // --- Getters y Setters ---
-//    public Long getIdPedido() { return idPedido; }
-//    public void setIdPedido(Long idPedido) { this.idPedido = idPedido; }
-//    public LocalDateTime getFechaHora() { return fechaHora; }
-//    public void setFechaHora(LocalDateTime fechaHora) { this.fechaHora = fechaHora; }
+//    
+//    // Constructor completo (necesario para la base de datos)
+//    public PedidoDTO(long id, String codigo, long clienteId, LocalDateTime fechaRegistro, String estado, double total) {
+//        this.id = id;
+//        this.codigo = codigo;
+//        this.clienteId = clienteId;
+//        this.fechaRegistro = fechaRegistro;
+//        this.estado = estado;
+//        this.total = total;
+//    }
+//    
+//    // Getters y Setters
+//    public String getCodigo() { return codigo; }
 //    public String getEstado() { return estado; }
 //    public void setEstado(String estado) { this.estado = estado; }
-//    public List<DetallePedidoDTO> getDetalles() { return detalles; }
-//    public void setDetalles(List<DetallePedidoDTO> detalles) { this.detalles = detalles; }
+//    // ... otros getters y setters
+//    
+//    // Método para el monitor de cocina (obtiene el principal y consideraciones)
+//    public String getPrincipal() {
+//        if (detalles != null && !detalles.isEmpty()) {
+//            // Devuelve el nombre del primer producto del detalle como 'Principal'
+//            return detalles.get(0).getNombreProducto();
+//        }
+//        return "N/A";
+//    }
+//
+//    public String getConsideraciones() {
+//        // En un sistema real, las consideraciones serían un campo de PedidoDTO.
+//        // Aquí lo simulamos con el primer detalle para el ejemplo visual.
+//        return "Ninguna"; 
+//    }
 //}

@@ -59,10 +59,13 @@ public class LoginServlet extends HttpServlet {
 
                 if ("ADMIN".equalsIgnoreCase(rol)) {
                     // Si es admin se mandara a un apartado especial
-                    response.sendRedirect(request.getContextPath() + "/index.html");
+//                    response.sendRedirect(request.getContextPath() + "/adminnnnnn.html");
                 } else {
                     // Si es cliente lo mandamos al inicio
-                    response.sendRedirect(request.getContextPath() + "/index.jsp");
+//                    Cuando usas response.sendRedirect(request.getContextPath() + "/catalogo"):
+//                         El navegador del cliente recibe una respuesta del servidor indicando que debe hacer una nueva solicitud GET al URL /catalogo.
+//                         Esta nueva solicitud es capturada por el CatalogoServlet (que está mapeado a /catalogo).
+                    response.sendRedirect(request.getContextPath() + "/catalogo");
                 }
 
             } else {

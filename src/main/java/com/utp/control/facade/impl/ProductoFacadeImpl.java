@@ -28,4 +28,10 @@ public class ProductoFacadeImpl implements ProductoFacade {
         System.out.println("DEBUG: Lógica de negocio ejecutada para listar catálogo.");
         return productoDAO.obtenerTodosActivos();
     }
+    
+    @Override
+    public ProductoDTO buscarPorId(long id) throws Exception {
+        // Delega la solicitud de búsqueda al DAO
+        return productoDAO.obtenerPorId(id);
+    }
 }

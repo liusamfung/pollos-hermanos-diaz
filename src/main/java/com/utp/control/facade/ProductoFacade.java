@@ -13,4 +13,6 @@ public interface ProductoFacade {
      * @return Lista de productos listos para la venta.
      */
     List<ProductoDTO> getCatalogoParaVenta();
+    
+    ProductoDTO buscarPorId(long id) throws Exception;
 }

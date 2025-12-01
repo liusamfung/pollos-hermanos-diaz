@@ -15,13 +15,51 @@
 <body class="p-8">
 
     <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-2xl">
+        
+        <!-- Bloque de Usuario Logueado (Cerrar Sesión) -->
+        <c:if test="${not empty sessionScope.cliente}">
+            <div class="mb-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-800 rounded-md shadow-sm flex justify-between items-center">
+                <p class="font-semibold text-lg">
+                    Bienvenido, ${sessionScope.cliente.nombre}.
+                </p>
+                <a href="${pageContext.request.contextPath}/logout" class="text-red-600 hover:text-red-800 font-medium underline text-sm">
+                    Cerrar Sesión
+                </a>
+            </div>
+        </c:if>
+        
+        <!-- HEADER Y TÍTULO -->
         <h1 class="text-4xl font-bold text-red-700 mb-6 border-b pb-2">🐔 Nuestro Catálogo de Productos</h1>
+        
+        <!-- NUEVOS BOTONES DE NAVEGACIÓN AÑADIDOS AQUÍ -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <!-- 1. Botón "Ir a Inicio" -->
+            <a href="${pageContext.request.contextPath}/index.html" 
+               class="flex-1 text-center px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition shadow-md">
+                Ir a Inicio
+            </a>
+            
+            <!-- 2. Botón "Loguearme" (Solo visible si NO está logueado) -->
+            <c:if test="${empty sessionScope.cliente}">
+                <a href="${pageContext.request.contextPath}/login" 
+                   class="flex-1 text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition shadow-md">
+                    Loguearme
+                </a>
+            </c:if>
+
+            <!-- 3. Botón "Ir al Carrito" (Existente, movido a la barra de navegación) -->
+            <a href="${pageContext.request.contextPath}/carrito"
+               class="flex-1 text-center px-4 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg">
+                🛒 Ir al Carrito
+            </a>
+        </div>
+
+
         <p class="text-gray-600 mb-8">
             Bienvenido al menú oficial. Todos los precios están en PEN.
         </p>
 
         <!-- Uso de JSTL para iterar sobre la lista de Productos -->
-        <!-- La lista 'productos' fue inyectada por el Servlet en el Request -->
         <div class="space-y-6">
             <c:choose>
                 <c:when test="${not empty requestScope.productos}">
@@ -41,9 +79,16 @@
                                     S/. 
                                     <c:out value="${producto.precio}" /> 
                                 </p>
-                                <button class="mt-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-700 transition">
-                                    Añadir
-                                </button>
+                                
+                               <form action="${pageContext.request.contextPath}/carrito" method="post">
+                                    <input type="hidden" name="idProducto" value="${producto.id}">
+                                    <input type="hidden" name="accion" value="agregar">
+                                    
+                                    <button type="submit" class="mt-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-700 transition">
+                                        Añadir
+                                    </button>
+                                </form>
+                                
                             </div>
                         </div>
                     </c:forEach>
