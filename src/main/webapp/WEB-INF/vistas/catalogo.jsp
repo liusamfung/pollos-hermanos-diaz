@@ -38,7 +38,12 @@
                class="flex-1 text-center px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition shadow-md">
                 Ir a Inicio
             </a>
-           
+           <c:if test="${sessionScope.cliente.rol == 'ADMIN'}">
+                <a href="${pageContext.request.contextPath}/admin/monitor-cocina"
+                   class="flex-1 text-center px-4 py-2 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition shadow-lg">
+                    🧑‍🍳 Ir a Cocina
+                </a>
+            </c:if>
             <!-- 3. Botón "Ir al Carrito" (Existente, movido a la barra de navegación) -->
             <a href="${pageContext.request.contextPath}/carrito"
                class="flex-1 text-center px-4 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg">

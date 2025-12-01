@@ -61,9 +61,9 @@ public class LoginServlet extends HttpServlet {
                 //Verificación de ROL
                 String rol = clienteLogueado.getRol();
 
-                if ("ADMIN".equalsIgnoreCase(rol)) {
-                    // Si es admin se mandara a un apartado especial
-                    response.sendRedirect(request.getContextPath() + "/admin.jsp");
+
+                if ("ADMIN".equalsIgnoreCase(rol)){
+                    response.sendRedirect(request.getContextPath() + "/admin/monitor-cocina");
                 } else {
                     // Si es cliente lo mandamos al inicio
                     response.sendRedirect(request.getContextPath() + "/index.jsp");

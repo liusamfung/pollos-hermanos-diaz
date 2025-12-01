@@ -1,53 +1,48 @@
-//package com.utp.modelo.dto;
-//
-//import java.time.LocalDateTime;
-//import java.util.List;
-//
-//public class PedidoDTO {
-//    private long id;
-//    private String codigo; // ABTNE, AA351, etc.
-//    private long clienteId;
-//    private LocalDateTime fechaRegistro;
-//    private String estado; // PENDIENTE, COMPLETADO, CANCELADO, etc.
-//    private double total;
-//    
-//    // Lista de ítems asociados a este pedido
-//    private List<DetallePedidoDTO> detalles; 
-//
-//    // Constructor para el monitor de cocina (simplificado)
-//    public PedidoDTO(String codigo, String estado) {
-//        this.codigo = codigo;
-//        this.estado = estado;
-//    }
-//    
-//    // Constructor completo (necesario para la base de datos)
-//    public PedidoDTO(long id, String codigo, long clienteId, LocalDateTime fechaRegistro, String estado, double total) {
-//        this.id = id;
-//        this.codigo = codigo;
-//        this.clienteId = clienteId;
-//        this.fechaRegistro = fechaRegistro;
-//        this.estado = estado;
-//        this.total = total;
-//    }
-//    
-//    // Getters y Setters
-//    public String getCodigo() { return codigo; }
-//    public String getEstado() { return estado; }
-//    public void setEstado(String estado) { this.estado = estado; }
-//    // ... otros getters y setters
-//    
-//    // Método para el monitor de cocina (obtiene el principal y consideraciones)
-//    public String getPrincipal() {
-//        if (detalles != null && !detalles.isEmpty()) {
-//            // Devuelve el nombre del primer producto del detalle como 'Principal'
-//            return detalles.get(0).getNombreProducto();
-//        }
-//        return "N/A";
-//    }
-//
-//    public String getConsideraciones() {
-//        // En un sistema real, las consideraciones serían un campo de PedidoDTO.
-//        // Aquí lo simulamos con el primer detalle para el ejemplo visual.
-//        return "Ninguna"; 
-//    }
-//}
+// Archivo: com/utp/modelo/dto/PedidoDTO.java
+package com.utp.modelo.dto;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+/**
+ * DTO que mapea la tabla pedido.
+ * Contiene la información de cabecera y una lista de sus detalles.
+ */
+public class PedidoDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Long id; // ID del pedido (PRI)
+    private Long clienteId; // FK a Cliente (cliente_id)
+    private LocalDateTime fechaPedido; // (fecha_pedido)
+    private BigDecimal total; // (total decimal(7,2))
+    private String estado; // (estado)
+    
+    // Relación de Uno a Muchos: Contiene los items del pedido
+    private List<DetallePedidoDTO> detalles;
+
+    // Constructor vacío
+    public PedidoDTO() {
+        this.estado = "PENDIENTE"; // Valor por defecto
+    }
+
+    // Getters y Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Long getClienteId() { return clienteId; }
+    public void setClienteId(Long clienteId) { this.clienteId = clienteId; }
+
+    public LocalDateTime getFechaPedido() { return fechaPedido; }
+    public void setFechaPedido(LocalDateTime fechaPedido) { this.fechaPedido = fechaPedido; }
+
+    public BigDecimal getTotal() { return total; }
+    public void setTotal(BigDecimal total) { this.total = total; }
+
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+
+    public List<DetallePedidoDTO> getDetalles() { return detalles; }
+    public void setDetalles(List<DetallePedidoDTO> detalles) { this.detalles = detalles; }
+}
