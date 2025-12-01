@@ -38,15 +38,7 @@
                class="flex-1 text-center px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition shadow-md">
                 Ir a Inicio
             </a>
-            
-            <!-- 2. Botón "Loguearme" (Solo visible si NO está logueado) -->
-            <c:if test="${empty sessionScope.cliente}">
-                <a href="${pageContext.request.contextPath}/login" 
-                   class="flex-1 text-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition shadow-md">
-                    Loguearme
-                </a>
-            </c:if>
-
+           
             <!-- 3. Botón "Ir al Carrito" (Existente, movido a la barra de navegación) -->
             <a href="${pageContext.request.contextPath}/carrito"
                class="flex-1 text-center px-4 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg">
