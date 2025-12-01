@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Confirmación</title>
-    <meta http-equiv="refresh" content="3; url=${pageContext.request.contextPath}/index.html">
+    <meta http-equiv="refresh" content="3; url=${pageContext.request.contextPath}/index.jsp">
     <script src="https://cdn.tailwindcss.com"></script>
     <style> body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; } </style>
 </head>

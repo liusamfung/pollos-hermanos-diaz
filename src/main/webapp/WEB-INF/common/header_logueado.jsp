@@ -38,7 +38,7 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="LogoutServlet">Cerrar Sesiòn</a>
+                        <a class="dropdown-item" href="logout">Cerrar Sesiòn</a>
                     </li>
                 </ul>
             </div>
